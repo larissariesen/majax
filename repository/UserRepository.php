@@ -73,8 +73,7 @@ class UserRepository extends Repository
         return $row;
     }
 
-    public function readByPw($password)
-    {
+/*    {
         // Query erstellen
         $query = "SELECT * FROM {$this->tableName} WHERE password=?";
 
@@ -100,6 +99,6 @@ class UserRepository extends Repository
 
         // Den gefundenen Datensatz zurückgeben
         return $row;
-    }
+    }*/
 
 }
