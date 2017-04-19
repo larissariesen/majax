@@ -32,11 +32,10 @@ class BlogController
     {
         //Upload Image
         $target_dir = "uploads/";
-        $target_file = $target_dir.basename($_FILES['image_path']['tmp_name']);
-        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+        $imageFileType = pathinfo($_FILES["image_path"]["name"], PATHINFO_EXTENSION);
         //check if file is an actual image
-        if (isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["image_path"]);
+        if (isset($_POST["send"])) {
+            $check = getimagesize($_FILES["image_path"]["tmp_name"]);
             if ($check !== false) {
                 echo "File is an image - " . $check["mime"] . ".";
                 $uploadOk = 1;
@@ -45,20 +44,23 @@ class BlogController
                 $uploadOk = 0;
             }
             //move
-            
+            $title = $_POST['title'];
+            $content = $_POST['content'];
 
-            if ($_POST['send']) {
-                $title = $_POST['title'];
-                // $user_id = $_POST['user_id'];
-                $content = $_POST['content'];
-                $image_path = $_POST['image_path'];
 
-                $blogRepository = new BlogRepository();
-                $blogRepository->create($title, Security::getUser()->id, $content, $image_path);
+            $blogRepository = new BlogRepository();
+            $id = $blogRepository->create($title, Security::getUser()->id, $content, "");
+
+            $dstFileName = $target_dir.$id.".".$imageFileType;
+
+            if (move_uploaded_file($_FILES["image_path"]["tmp_name"], $dstFileName)) {
+
+                $blogRepository->updateImagePath($id, $dstFileName);
+
             }
 
-            // Anfrage an die URI /user weiterleiten (HTTP 302)
-            header('Location: /blog');
         }
+        // Anfrage an die URI /user weiterleiten (HTTP 302)
+        header('Location: /blog');
     }
 }

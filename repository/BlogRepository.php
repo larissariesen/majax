@@ -54,5 +54,16 @@ protected $tableName = 'blogs';
         return $rows;
     }
 
+    public function updateImagePath($id, $path) {
+        $query = "UPDATE $this->tableName SET image_path=? WHERE id=?";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('si', $path, $id);
+
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        }
+    }
+
 }
 
