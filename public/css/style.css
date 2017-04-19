@@ -1,11 +1,12 @@
 body {
   padding-top: 50px;
-  background-color: whitesmoke;
+  background-color: lightgrey;
 }
 
 .navbar {
   background-color: #101001;
   padding: 0;
+  margin: 0;
   margin-left: 20%;
   margin-right: 20%;
   border-radius: 5px;
@@ -27,4 +28,14 @@ body {
   background-color: red !important;
   margin-bottom: -5px;
   color: white !important;
+}
+
+.panel.panel-default{
+  height: 75%;
+  background-color: red;
+  margin: 0;
+}
+
+#footer{
+  position: center;
 }
