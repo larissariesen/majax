@@ -1,5 +1,6 @@
 <?php
 
+
 require_once '../repository/UserRepository.php';
 
 /**
@@ -56,8 +57,31 @@ class UserController
             $username = $_POST['username'];
             $password = $_POST['password'];
 
+            $password_hash = hash('sha256', $password);
+
             $userRepository = new UserRepository();
-            $userRepository->login($username, $password);
+            $user = $userRepository->readByEmail($username);
+
+            var_dump($user);
+
+            if (isset($user) && isset($user->id)) {
+
+                if ($user->password == $password_hash) {
+
+                    $_SESSION[Security::SESSION_USER] = $user;
+
+                    // LOGIN OK
+                    header("Location: /user");
+
+                } else {
+                    // LOGIN NOT OK
+                    echo 'User does not exist or the password is wrong';
+                }
+
+            } else {
+                // LOGIN NOT OK
+                echo 'User does not exist or the password is wrong';
+            }
         }
     }
 

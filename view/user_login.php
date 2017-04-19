@@ -1,3 +1,10 @@
+
+<?php if (Security::isAuthenticated()) : ?>
+
+    You are loggedin!<br>
+    Hello <?= $_SESSION[Security::SESSION_USER]->firstName; ?>
+
+<?php else : ?>
 <form class="form-horizontal" action="/user/doLogin" method="post">
     <div class="component" data-html="true">
         <div class="form-group">
@@ -20,3 +27,4 @@
         </div>
     </div>
 </form>
+<?php endif; ?>
