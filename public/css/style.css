@@ -14,3 +14,17 @@ body {
 .container {
   margin-left: 20%;
 }
+
+.panel-body{
+  background-color: black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: darkgray;
+  margin: 0 0 100px 0;
+}
+
+.panel-heading{
+  background-color: red !important;
+  margin-bottom: -5px;
+  color: white !important;
+}

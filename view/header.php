@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Bbc MVC</a>
+            <a class="navbar-brand" href="/">MAJAX</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -49,7 +49,7 @@
                     <li><a href="/blog/all">All Blogs</a></li>
                     <li><a href="/user/create">Create user</a></li>
                     <li><a href="/user/login">Login</a></li>
-                <?php endif ?>
+                <?php endif; ?>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
