@@ -76,7 +76,7 @@ require_once 'ConnectionHandler.php';
 class Repository
 {
     /**
-     * Damit die generischen Querys wisse, um welche Tabelle es sich handelt,
+     * Damit die generischen Querys wissen, um welche Tabelle es sich handelt,
      * gibt es diese Variabel. Diese muss in den konkreten Implementationen mit
      * dem Tabellennamen überschrieben werden. (Siehe beispiel oben).
      */
