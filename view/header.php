@@ -37,6 +37,9 @@
             <li><a href="/user">Users</a></li>
             <li><a href="/user/create">Create user</a></li>
               <li><a href="/user/login">Login</a></li>
+              <?php if(Security::isAuthenticated()): ?>
+              <li><a href="/user/logout">Logout</a></li>
+              <?php endif ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

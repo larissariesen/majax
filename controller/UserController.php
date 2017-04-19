@@ -85,6 +85,11 @@ class UserController
         }
     }
 
+    public function logout()
+    {
+
+    }
+
     public function delete()
     {
         $userRepository = new UserRepository();
