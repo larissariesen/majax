@@ -88,7 +88,7 @@ class UserController
     public function logout()
     {
         Session_destroy();
-        header('Location: /user');
+        header('Location: /user/login');
     }
 
     public function delete()
