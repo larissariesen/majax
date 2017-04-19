@@ -8,17 +8,6 @@ require_once '../repository/UserRepository.php';
  */
 class UserController
 {
-    public function index()
-    {
-        $userRepository = new UserRepository();
-
-        $view = new View('user_index');
-        $view->title = 'Benutzer';
-        $view->heading = 'Benutzer';
-        $view->users = $userRepository->readAll();
-        $view->display();
-    }
-
     public function create()
     {
         $view = new View('user_create');
@@ -43,9 +32,9 @@ class UserController
         header('Location: /user');
     }
 
-    public function login()
+    public function index()
     {
-        $view = new View('user_login');
+        $view = new View('user_index');
         $view->title = 'Login';
         $view->heading = 'Login';
         $view->display();
@@ -71,7 +60,7 @@ class UserController
                     $_SESSION[Security::SESSION_USER] = $user;
 
                     // LOGIN OK
-                    header("Location: /user");
+                    header("Location: /");
 
                 } else {
                     // LOGIN NOT OK
@@ -88,7 +77,7 @@ class UserController
     public function logout()
     {
         Session_destroy();
-        header('Location: /user/login');
+        header('Location: /');
     }
 
     public function delete()

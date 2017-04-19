@@ -1,41 +1,41 @@
 body {
-  padding-top: 50px;
-  background-color: lightgrey;
+    padding-top: 50px;
+    background-color: lightgrey;
 }
 
 .navbar {
-  background-color: #101001;
-  padding: 0;
-  margin: 0;
-  margin-left: 20%;
-  margin-right: 20%;
-  border-radius: 5px;
+    background-color: #101001;
+    padding: 0;
+    margin: 0;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 5px;
 }
 
 .container {
-  margin-left: 20%;
+    margin-left: 20%;
 }
 
-.panel-body{
-  background-color: black;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  color: darkgray;
-  margin: 0 0 100px 0;
+.panel-body {
+    background-color: black;
+    border-bottom-right-radius: 15px;
+    color: darkgray;
+    margin: 0 0 0 0;
 }
 
-.panel-heading{
-  background-color: red !important;
-  margin-bottom: -5px;
-  color: white !important;
+.panel-heading {
+    background-color: red !important;
+    margin-bottom: -5px;
+    color: white !important;
 }
 
-.panel.panel-default{
-  height: 75%;
-  background-color: red;
-  margin: 0;
+.panel.panel-default {
+    height: 75%;
+    background-color: red;
+    margin: 0 0 15px 0;
+    border-bottom-right-radius: 25px;
 }
 
-#footer{
-  position: center;
+#footer {
+    position: center;
 }

@@ -38,17 +38,15 @@
 
                 <?php if (Security::isAuthenticated()): ?>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/user">Users</a></li>
                     <li><a href="/blog/create">Create Blog</a></li>
                     <li><a href="/blog">All Blogs</a></li>
                     <li><a href="/blog/own">My Blogs</a></li>
                     <li><a href="/user/logout">Logout</a></li>
                 <?php else: ?>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/user">Users</a></li>
-                    <li><a href="/blog/all">All Blogs</a></li>
+                    <li><a href="/blog">All Blogs</a></li>
                     <li><a href="/user/create">Create user</a></li>
-                    <li><a href="/user/login">Login</a></li>
+                    <li><a href="/user">Login</a></li>
                 <?php endif; ?>
             </ul>
         </div><!--/.nav-collapse -->

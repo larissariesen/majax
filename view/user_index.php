@@ -1,19 +1,30 @@
-<article class="hreview open special">
-	<?php if (empty($users)): ?>
-		<div class="dhd">
-			<h2 class="item title">Hoopla! Keine User gefunden.</h2>
-		</div>
-	<?php else: ?>
-		<?php foreach ($users as $user): ?>
-			<div class="panel panel-default">
-				<div class="panel-heading"><?= $user->firstName;?> <?= $user->lastName;?></div>
-				<div class="panel-body">
-					<p class="description">In der Datenbank existiert ein User mit dem Namen <?= $user->firstName;?> <?= $user->lastName;?>. Dieser hat die EMail-Adresse: <a href="mailto:<?= $user->email;?>"><?= $user->email;?></a></p>
-					<p>
-						<a title="Löschen" href="/user/delete?id=<?= $user->id ?>">Löschen</a>
-					</p>
-				</div>
-			</div>
-		<?php endforeach ?>
-	<?php endif ?>
-</article>
+
+<?php if (Security::isAuthenticated()) : ?>
+
+    You are loggedin!<br>
+    Hello <?= $_SESSION[Security::SESSION_USER]->firstName && $_SESSION[Security::SESSION_USER]->lastName; ?>
+
+<?php else : ?>
+<form class="form-horizontal" action="/user/doLogin" method="post">
+    <div class="component" data-html="true">
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="username">Username</label>
+            <div class="col-md-4">
+                <input id="username" name="username" type="text" placeholder="E-mail" class="form-control input-md">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="password">Password</label>
+            <div class="col-md-4">
+                <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="login">&nbsp;</label>
+            <div class="col-md-4">
+                <input id="login" name="login" type="submit" value="Submit" class="btn btn-primary">
+            </div>
+        </div>
+    </div>
+</form>
+<?php endif; ?>
