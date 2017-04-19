@@ -29,7 +29,7 @@ protected $tableName = 'blogs';
 
     public function readAllComplete($max = 100)
     {
-        $query = "SELECT * FROM {$this->tableName} LIMIT 0, $max";
+        $query = "SELECT * FROM {$this->tableName} ORDER BY id DESC";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->execute();
