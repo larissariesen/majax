@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="/blog/doCreate" method="post">
+<form class="form-horizontal" action="/blog/doCreate" method="post" enctype="multipart/form-data">
     <div class="component" data-html="true">
         <div class="form-group">
             <label class="col-md-2 control-label" for="title">Blog Title</label>
@@ -12,12 +12,16 @@
                 <textarea id="content" name="content" placeholder="Content" class="form-control input-md"></textarea>
             </div>
         </div>
+
+
         <div class="form-group">
             <label class="col-md-2 control-label" for="image_path">Image</label>
             <div class="col-md-4">
                 <input id="image_path" name="image_path" type="file" class="form-control input-md">
             </div>
         </div>
+
+
         <div class="form-group">
             <label class="col-md-2 control-label" for="send">&nbsp;</label>
             <div class="col-md-4">

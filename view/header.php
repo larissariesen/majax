@@ -8,8 +8,7 @@
     <title><?= $title ?> | Bbc MVC</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet">
@@ -44,12 +43,8 @@
                     <li><a href="/user/logout">Logout</a></li>
                 <?php else: ?>
                     <li><a href="/">Home</a></li>
-<<<<<<< HEAD
-=======
-                    <li><a href="/user">Users</a></li>
->>>>>>> origin/master
                     <li><a href="/blog">All Blogs</a></li>
-                    <li><a href="/user/create">Create user</a></li>
+                    <li><a href="/user/create">Register</a></li>
                     <li><a href="/user">Login</a></li>
                 <?php endif; ?>
             </ul>
