@@ -3,31 +3,26 @@
         <div class="form-group">
             <label class="col-md-2 control-label" for="title">Blog Title</label>
             <div class="col-md-4">
-                <input id="firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md">
+                <input id="title" name="title" type="text" placeholder="Title" class="form-control input-md">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label" for="lastName">Content</label>
+            <label class="col-md-2 control-label" for="content">Content</label>
             <div class="col-md-4">
-                <input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md">
+                <input id="content" name="content" type="textarea" placeholder="Content" class="form-control input-md">
             </div>
         </div>
+
         <div class="form-group">
-            <label class="col-md-2 control-label" for="email">E-Mail</label>
+            <label class="col-md-2 control-label" for="image_path">Image</label>
             <div class="col-md-4">
-                <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="password">Password</label>
-            <div class="col-md-4">
-                <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md">
+                <input id="image_path" name="image_path" type="file" class="form-control input-md">
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-2 control-label" for="send">&nbsp;</label>
             <div class="col-md-4">
-                <input id="send" name="send" type="submit" class="btn btn-primary">
+                <input id="send" name="send" type="submit" class="btn btn-primary" value="Submit">
             </div>
         </div>
     </div>

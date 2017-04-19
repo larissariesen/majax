@@ -1,5 +1,7 @@
 <?php
 
+require_once '../repository/BlogRepository.php';
+
 /**
  * Created by PhpStorm.
  * User: briesl
@@ -12,11 +14,34 @@ class BlogController
     {
         $blogRepository = new BlogRepository();
 
-        $view = new View('user_index');
+        $view = new View('blog_all');
         $view->title = 'Blogs';
         $view->heading = 'Blogs';
         $view->blogs = $blogRepository->readAll();
         $view->display();
+    }
+
+    public function create()
+    {
+        $view = new View('blog_create');
+        $view->title = 'Create Blog';
+        $view->heading = 'Create Blog';
+        $view->display();
+    }
+    public function doCreate()
+    {
+        if ($_POST['send']) {
+            $title = $_POST['title'];
+           // $user_id = $_POST['user_id'];
+            $content = $_POST['content'];
+            $image_path = $_POST['image_path'];
+
+            $blogRepository = new BlogRepository();
+            $blogRepository->create($title, $content, $image_path);
+        }
+
+        // Anfrage an die URI /user weiterleiten (HTTP 302)
+        header('Location: /user');
     }
 
 }

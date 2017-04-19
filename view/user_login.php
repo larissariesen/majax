@@ -2,7 +2,7 @@
 <?php if (Security::isAuthenticated()) : ?>
 
     You are loggedin!<br>
-    Hello <?= $_SESSION[Security::SESSION_USER]->firstName; ?>
+    Hello <?= $_SESSION[Security::SESSION_USER]->firstName && $_SESSION[Security::SESSION_USER]->lastName; ?>
 
 <?php else : ?>
 <form class="form-horizontal" action="/user/doLogin" method="post">
@@ -22,7 +22,7 @@
         <div class="form-group">
             <label class="col-md-2 control-label" for="login">&nbsp;</label>
             <div class="col-md-4">
-                <input id="login" name="login" type="submit" class="btn btn-primary">
+                <input id="login" name="login" type="submit" value="Submit" class="btn btn-primary">
             </div>
         </div>
     </div>
