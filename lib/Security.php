@@ -17,5 +17,9 @@ class Security
 
     }
 
+    public static function getUser() {
+        return $_SESSION[Security::SESSION_USER];
+    }
+
 
 }

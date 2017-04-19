@@ -14,10 +14,10 @@ class BlogController
     {
         $blogRepository = new BlogRepository();
 
-        $view = new View('blog_all');
+        $view = new View('blog_index');
         $view->title = 'Blogs';
         $view->heading = 'Blogs';
-        $view->blogs = $blogRepository->readAll();
+        $view->blogs = $blogRepository->readAllComplete();
         $view->display();
     }
 
@@ -37,7 +37,7 @@ class BlogController
             $image_path = $_POST['image_path'];
 
             $blogRepository = new BlogRepository();
-            $blogRepository->create($title, $content, $image_path);
+            $blogRepository->create($title, Security::getUser()->id, $content, $image_path);
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
