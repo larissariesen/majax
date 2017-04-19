@@ -10,6 +10,5 @@ class BlogRepository extends Repository
 {
 protected $tableName = 'blogs';
 
-
-
+    public function read
 }

@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label" for="lastName">Last Name</label>
+            <label class="col-md-2 control-label" for="lastName">Content</label>
             <div class="col-md-4">
                 <input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md">
             </div>
