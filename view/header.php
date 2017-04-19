@@ -44,6 +44,10 @@
                     <li><a href="/user/logout">Logout</a></li>
                 <?php else: ?>
                     <li><a href="/">Home</a></li>
+<<<<<<< HEAD
+=======
+                    <li><a href="/user">Users</a></li>
+>>>>>>> origin/master
                     <li><a href="/blog">All Blogs</a></li>
                     <li><a href="/user/create">Create user</a></li>
                     <li><a href="/user">Login</a></li>
