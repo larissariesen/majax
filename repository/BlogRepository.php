@@ -27,9 +27,9 @@ protected $tableName = 'blogs';
         return $statement->insert_id;
     }
 
-    public function readAllComplete($max = 100)
+    public function readAllComplete($max = 20)
     {
-        $query = "SELECT * FROM {$this->tableName} LIMIT 0, $max";
+        $query = "SELECT * FROM {$this->tableName} ORDER BY id DESC";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->execute();

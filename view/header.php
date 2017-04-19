@@ -46,7 +46,7 @@
                 <?php else: ?>
                     <li><a href="/">Home</a></li>
                     <li><a href="/user">Users</a></li>
-                    <li><a href="/blog/all">All Blogs</a></li>
+                    <li><a href="/blog">All Blogs</a></li>
                     <li><a href="/user/create">Create user</a></li>
                     <li><a href="/user/login">Login</a></li>
                 <?php endif; ?>

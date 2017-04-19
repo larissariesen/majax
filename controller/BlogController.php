@@ -41,7 +41,7 @@ class BlogController
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
+        header('Location: /blog');
     }
 
 }
