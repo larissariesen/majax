@@ -2,6 +2,9 @@
 
 require_once 'UserRepository.php';
 
+/*
+ * blogRepository Handel the access to to table 'blog' *
+*/
 /**
  * Created by PhpStorm.
  * User: briesl
@@ -39,7 +42,7 @@ class BlogRepository extends Repository
             throw new Exception($statement->error);
         }
 
-        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        // get resource from the result and save it in the array $row
         $rows = array();
         $userRepository = new UserRepository();
 
@@ -67,7 +70,6 @@ class BlogRepository extends Repository
             throw new Exception($statement->error);
         }
 
-        // Datensätze aus dem Resultat holen und in das Array $rows speichern
         $rows = array();
         $userRepository = new UserRepository();
 
