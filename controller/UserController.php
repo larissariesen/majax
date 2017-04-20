@@ -70,7 +70,7 @@ class UserController
             $userRepository = new UserRepository();
             $user = $userRepository->readByEmail($username);
 
-            if ($user != NULL && $user->password != $password_hash) {
+            if ($user != NULL && $user->password == $password_hash) {
                 $_SESSION[Security::SESSION_USER] = $user;
                 header("Location: /blog");
             } else {
