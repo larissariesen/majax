@@ -11,7 +11,7 @@
                         <img border="0" alt="delete" src="/images/del.png" width="20" height="20"
                              style="float: right; margin-left: 20px;">
                     </a>
-                    <a href="blog_edit.php">
+                    <a href="/blog/edit?id=<?= $blog->id ?>">
                         <img border="0" alt="edit" src="/images/edit.png" width="20" height="20" style="float: right">
                     </a>
                 </div>
@@ -19,8 +19,7 @@
                     <?php if ($blog->image_path == NULL): ?>
                         <p></p>
                     <?php else: ?>
-                        <img src="/uploads/<?php echo $blog->id;
-                        echo $blog->image_path ?>" alt="image"/>
+                        <img src="/uploads/<?= $blog->id.$blog->image_path ?>" alt="image"/>
                         <div class="User">
                         </div>
                     <?php endif ?>

@@ -81,4 +81,18 @@ class BlogRepository extends Repository
 
         return $rows;
     }
+
+    public function update($blog_id, $title, $content)
+    {
+        $query = "UPDATE {$this->tableName} SET title=?, content=? WHERE id=?";
+
+        $blogRepository = new BlogRepository();
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('ssi', $title, $content, $blog_id);
+
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        }
+
+    }
 }
