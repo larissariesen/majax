@@ -1,7 +1,6 @@
+<!-- First- & Lastname current user-->
 <?php if (Security::isAuthenticated()) : ?>
-
     Hello <?= $_SESSION[Security::SESSION_USER]->firstName, " ", $_SESSION[Security::SESSION_USER]->lastName; ?><br><br>
-
 <?php endif; ?>
 <?php
 
