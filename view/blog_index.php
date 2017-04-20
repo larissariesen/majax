@@ -4,6 +4,16 @@
             <h2 class="item title">Oops! No Blogs were found.</h2>
         </div>
     <?php else: ?>
+
+        <div id="profile">
+            <div id="style">
+            <div>
+               <img id="pandapanda" src="../images/logo.png">
+            </div>
+                <!--<h2>Name: <?= //UserController:: ?></h2>-->
+            </div>
+        </div>
+
         <?php foreach ($blogs as $blog): ?>
             <div class="panel panel-default">
                 <div class="panel-heading" name="title"><?= $blog->title; ?>
