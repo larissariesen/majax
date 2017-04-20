@@ -37,26 +37,24 @@ class BlogController
             $target_dir = "uploads/";
             $target_file = $target_dir.basename($_FILES['image_path']['tmp_name']);
             $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-            $check = getimagesize($_FILES["image_path"]);
-            if ($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
-            }
-            //move
-            
 
-            if ($_POST['send']) {
+
+            $imageinfo = getimagesize($_FILES["image_path"]["tmp_name"]);
+            $image_type = $imageinfo[2];
+            $fileName = $_FILES['image_path']["name"];
+
+            if(in_array($image_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP)))
+            {
                 $title = htmlspecialchars($_POST['title']);
                 // $user_id = $_POST['user_id'];
                 $content = htmlspecialchars($_POST['content']);
-                $image_path = $_POST['image_path'];
+                $image_path = $_FILES['image_path']["tmp_name"];
 
                 $blogRepository = new BlogRepository();
-                $blogRepository->create($title, Security::getUser()->id, $content, $image_path);
+                $insert_id = $blogRepository->create($title, Security::getUser()->id, $content, $fileName);
             }
+            //TODO: move
+            move_uploaded_file ($image_path , $target_dir.$insert_id.$fileName);
 
             // Anfrage an die URI /user weiterleiten (HTTP 302)
             header('Location: /blog');

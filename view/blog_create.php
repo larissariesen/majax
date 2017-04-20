@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label" for="content">Content</label>
+            <label class="col-md-2 control-label" for="content" >Content</label>
             <div class="col-md-4">
                 <textarea id="content" name="content" placeholder="Content" class="form-control input-md"></textarea>
             </div>

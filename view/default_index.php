@@ -17,9 +17,7 @@
         <div class="panel panel-default">
             <div class="panel-heading" name="title"><?= $blog->title;?></div>
             <div class="panel-body">
-                <image class="Image" width="auto">
-                    <?= $blog->user->firstName ?>
-                </image>
+                <img src="<?php echo $blog->image_path?>" alt="image" />
                 <?= $blog->content;?>
                 <div class="User">
                     <?= $blog->user->email ?>
