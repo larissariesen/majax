@@ -3,19 +3,19 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="firstName">First Name</label>
 		  <div class="col-md-4">
-		  	<input id="firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md">
+		  	<input id="firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md" value="<?= (!empty($_POST['firstName'])) ? $_POST['firstName'] : "" ?>">
 		  </div>
 		</div>
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="lastName">Last Name</label>
 		  <div class="col-md-4">
-		  	<input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md">
+		  	<input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" value="<?= (!empty($_POST['lastName'])) ? $_POST['lastName'] : "" ?>">
 		  </div>
 		</div>
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="email">E-Mail*</label>
 		  <div class="col-md-4">
-		  	<input id="email" name="email" type="text" placeholder="E-Mail" required class="form-control input-md">
+		  	<input id="email" name="email" type="text" placeholder="E-Mail" required class="form-control input-md" value="<?= (!empty($_POST['firstName'])) ? $_POST['firstName'] : "" ?>">
               <?= Error::get('user_create_email') ?>
 		  </div>
 		</div>
