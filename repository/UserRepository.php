@@ -2,31 +2,20 @@
 
 require_once '../lib/Repository.php';
 
-/**
- * Das UserRepository ist zuständig für alle Zugriffe auf die Tabelle "user".
- *
- * Die Ausführliche Dokumentation zu Repositories findest du in der Repository Klasse.
- */
+/*
+ * UserRepository Handel the access to to table 'user' *
+*/
+
 class UserRepository extends Repository
 {
-    /**
-     * Diese Variable wird von der Klasse Repository verwendet, um generische
-     * Funktionen zur Verfügung zu stellen.
-     */
+
     protected $tableName = 'user';
 
     /**
-     * Erstellt einen neuen benutzer mit den gegebenen Werten.
+     *Creat new User with entered values
+     *password is hashed
      *
-     * Das Passwort wird vor dem ausführen des Queries noch mit dem SHA1
-     *  Algorythmus gehashed.
-     *
-     * @param $firstName Wert für die Spalte firstName
-     * @param $lastName Wert für die Spalte lastName
-     * @param $email Wert für die Spalte email
-     * @param $password Wert für die Spalte password
-     *
-     * @throws Exception falls das Ausführen des Statements fehlschlägt
+     * @throws Exception if $statment throws back error
      */
     public function create($firstName, $lastName, $email, $password)
     {
@@ -46,30 +35,24 @@ class UserRepository extends Repository
 
     public function readByEmail($email)
     {
-        // Query erstellen
+        // create Query
         $query = "SELECT * FROM {$this->tableName} WHERE email=?";
-
-        // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
-        // und die Parameter "binden"
+        //request DatabaseConnection
+        // prepare Query & bind parameters
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('s', $email);
-
-        // Das Statement absetzen
+        // execute (ausführen) the $statement
         $statement->execute();
-
-        // Resultat der Abfrage holen
+        // get Result of the request
         $result = $statement->get_result();
         if (!$result) {
             throw new Exception($statement->error);
         }
-
-        // Ersten Datensatz aus dem Reultat holen
+        // get first record
         $row = $result->fetch_object();
-
-        // Datenbankressourcen wieder freigeben
+        // release the Database resources again
         $result->close();
-
-        // Den gefundenen Datensatz zurückgeben
+        // give back found record
         return $row;
     }
 }

@@ -15,6 +15,7 @@
                 <textarea id="content" name="content" placeholder="Content" class="form-control input-md"><?= $blog->content ?></textarea>
             </div>
         </div>
+        <!-- Submit Button-->
         <div class="form-group">
             <label class="col-md-2 control-label" for="edit">&nbsp;</label>
             <div class="col-md-4">
