@@ -16,11 +16,14 @@
     <?php foreach ($blogs as $blog): ?>
         <div class="panel panel-default">
             <div class="panel-heading" name="title"><?= $blog->title;?></div>
-            <div class="panel-body"><?= $blog->content;?>
-                <div class="User">
+            <div class="panel-body">
+                <image class="Image" width="auto">
                     <?= $blog->user->firstName ?>
+                </image>
+                <?= $blog->content;?>
+                <div class="User">
+                    <?= $blog->user->email ?>
                 </div>
-                <p class="description" name="content"></p>
             </div>
         </div>
     <?php endforeach ?>

@@ -51,7 +51,7 @@ class UserController
             $userRepository = new UserRepository();
             $user = $userRepository->readByEmail($username);
 
-            var_dump($user);
+
 
             if (isset($user) && isset($user->id)) {
 

@@ -10,7 +10,7 @@ require_once 'UserRepository.php';
  */
 class BlogRepository extends Repository
 {
-protected $tableName = 'blogs';
+    protected $tableName = 'blogs';
 
     public function create($title, $user_id, $content, $image_path)
     {
@@ -27,7 +27,7 @@ protected $tableName = 'blogs';
         return $statement->insert_id;
     }
 
-    public function readAllComplete($max = 100)
+    public function readAllComplete()
     {
         $query = "SELECT * FROM {$this->tableName} ORDER BY id DESC";
 
@@ -54,5 +54,31 @@ protected $tableName = 'blogs';
         return $rows;
     }
 
-}
+    public function readAllCompleteByUserID($user_id)
+    {
+        $query = "SELECT * FROM {$this->tableName} WHERE user_id=? ORDER BY id DESC";
 
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('i', $user_id);
+        $statement->execute();
+
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        $userRepository = new UserRepository();
+
+        while ($row = $result->fetch_object()) {
+
+            $user = $userRepository->readById($row->user_id);
+            $row->user = $user;
+
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
+}

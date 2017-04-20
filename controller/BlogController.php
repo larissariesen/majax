@@ -15,9 +15,9 @@ class BlogController
         $blogRepository = new BlogRepository();
 
         $view = new View('blog_index');
-        $view->title = 'Blogs';
-        $view->heading = 'Blogs';
-        $view->blogs = $blogRepository->readAllComplete();
+        $view->title = 'My Blogs';
+        $view->heading = 'My Blogs';
+        $view->blogs = $blogRepository->readAllCompleteByUserID(Security::getUser()->id);
         $view->display();
     }
 
