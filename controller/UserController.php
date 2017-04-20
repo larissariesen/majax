@@ -10,6 +10,8 @@ class UserController
 {
     public function index()
     {
+        $this->doLogin();
+
         $view = new View('user_index');
         $view->title = 'Login';
         $view->heading = 'Login';
@@ -60,37 +62,23 @@ class UserController
     public function doLogin()
     {
 
-        if ($_POST['login']) {
+        if (isset($_POST['login'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
-
             $password_hash = hash('sha256', $password);
 
             $userRepository = new UserRepository();
             $user = $userRepository->readByEmail($username);
 
-
-
-            if (isset($user) && isset($user->id)) {
-
-                if ($user->password == $password_hash) {
-
-                    $_SESSION[Security::SESSION_USER] = $user;
-
-                    // LOGIN OK
-                    header("Location: /blog");
-
-                } else {
-                    // LOGIN NOT OK
-                    echo 'User does not exist or the password is wrong';
-                }
-
+            if ($user != NULL && $user->password != $password_hash) {
+                $_SESSION[Security::SESSION_USER] = $user;
+                header("Location: /blog");
             } else {
-                // LOGIN NOT OK
-                echo 'User does not exist or the password is wrong';
+                Error::add("user_login", "Username or Password incorrect, please try again.");
             }
         }
     }
+
 
     public function logout()
     {
