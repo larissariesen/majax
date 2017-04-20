@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="/blog/doCreate" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" action="/blog/doUpdate" method="post" enctype="multipart/form-data">
     <div class="component" data-html="true">
         <div class="form-group">
             <label class="col-md-2 control-label" for="title">Blog Title</label>
@@ -25,7 +25,7 @@
         <div class="form-group">
             <label class="col-md-2 control-label" for="send">&nbsp;</label>
             <div class="col-md-4">
-                <input id="send" name="send" type="submit" class="btn btn-primary" value="Submit">
+                <input id="send" name="send" type="submit" class="btn btn-primary" value="Update">
             </div>
         </div>
     </div>
