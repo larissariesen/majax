@@ -39,8 +39,8 @@ class DefaultController
         //   "default_index" rendern. Wie das genau funktioniert, ist in der
         //   View Klasse beschrieben.
         $view = new View('default_index');
-        $view->title = 'Home';
-        $view->heading = 'Home';
+        $view->title = 'All Blogs';
+        $view->heading = 'All Blogs';
 
         $view->blogs = $blogRepository->readAllComplete();
         $view->display();

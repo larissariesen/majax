@@ -9,7 +9,6 @@
                 <div class="panel-heading" name="title"><?= $blog->title;?></div>
                 <div class="panel-body"><?= $blog->content;?>
                     <div class="User">
-                        <?= $blog->user->firstName ?>
                     </div>
                     <p class="description" name="content"></p>
                 </div>
