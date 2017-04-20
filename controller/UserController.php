@@ -44,7 +44,7 @@ class UserController
                 $lastName = htmlspecialchars($_POST['lastName']);
                 $userRepository = new UserRepository();
                 $userRepository->create($firstName, $lastName, $email, $password);
-                //header('Location: /user');
+                header('Location: /user');
             }
         }
     }
