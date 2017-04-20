@@ -28,6 +28,7 @@ class BlogController
         $view->heading = 'Create Blog';
         $view->display();
     }
+
     public function doCreate()
     {
         //Upload Image
@@ -35,7 +36,7 @@ class BlogController
         //check if file is an actual image
         if (isset($_POST["send"])) {
             $target_dir = "uploads/";
-            $target_file = $target_dir.basename($_FILES['image_path']['tmp_name']);
+            $target_file = $target_dir . basename($_FILES['image_path']['tmp_name']);
             $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
 
@@ -43,8 +44,7 @@ class BlogController
             $image_type = $imageinfo[2];
             $fileName = $_FILES['image_path']["name"];
 
-            if(in_array($image_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP)))
-            {
+            if (in_array($image_type, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP))) {
                 $title = htmlspecialchars($_POST['title']);
                 // $user_id = $_POST['user_id'];
                 $content = htmlspecialchars($_POST['content']);
@@ -54,10 +54,23 @@ class BlogController
                 $insert_id = $blogRepository->create($title, Security::getUser()->id, $content, $fileName);
             }
             //TODO: move
-            move_uploaded_file ($image_path , $target_dir.$insert_id.$fileName);
+            move_uploaded_file($image_path, $target_dir . $insert_id . $fileName);
 
             // Anfrage an die URI /user weiterleiten (HTTP 302)
             header('Location: /blog');
         }
+    }
+
+    public function delete()
+    {
+        $userRepository = new UserRepository();
+        $userRepository->deleteById($_GET['id']);
+
+        if (Security::isAuthenticated()) {
+
+        }
+
+            // Anfrage an die URI /user weiterleiten (HTTP 302)
+            header('Location: /');
     }
 }

@@ -14,14 +14,21 @@
     <?php else: ?>
         <?php foreach ($blogs as $blog): ?>
             <div class="panel panel-default">
-                <div class="panel-heading" name="title"><?= $blog->title;
-                    echo ' - ';
-                    echo $blog->user->email; ?>
-                    <img onclick="" border="0" alt="delete" src="/images/del.png" width="20" height="20" style="float: right; margin-left: 10px;">
+                <div class="panel-heading" name="title"><?= $blog->title; ?> - <?= (isset($blog->user)) ? $blog->user->email : ""; ?>
+                    <?php if(Security::isAuthenticated()): ?>
+                    <a href="/blog/delete?id=<?=$blog->id ?>">
+                        <img border="0" alt="delete" src="/images/del.png" width="20" height="20"
+                             style="float: right; margin-left: 10px;">
+                    </a>
                     <a href="blog_edit.php">
                         <img border="0" alt="edit" src="/images/edit.png" width="20" height="20" style="float: right">
                     </a>
+                    <?php else: ?>
+                    <img border="0" alt="delete" src="/images/logo.png" width="20" height="20"
+                         style="float: right; margin-left: 10px;">
+                    <?php endif; ?>
                 </div>
+
                 <div class="panel-body">
                     <?php if ($blog->image_path == NULL): ?>
                         <p></p>
