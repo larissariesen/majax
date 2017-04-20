@@ -10,6 +10,8 @@ class UserController
 {
     public function create()
     {
+        $this->doCreate();
+
         $view = new View('user_create');
         $view->title = 'Create User';
         $view->heading = 'Create User';
@@ -18,18 +20,33 @@ class UserController
 
     public function doCreate()
     {
-        if ($_POST['send']) {
-            $firstName = htmlspecialchars($_POST['firstName']);
-            $lastName = htmlspecialchars($_POST['lastName']);
+        if (isset($_POST['send'])) {
+            $emailregex = '/^[\w\d-._]{1,100}@[\w\d]{1,50}\.[a-z]{1,10}$/';
+            $passwordregex = '/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/';
+
+            $error = false;
+
             $email = htmlspecialchars($_POST['email']);
+            if (!preg_match($emailregex, $email)) {
+                $error = true;
+                Error::add("user_create_email", "Please enter a valid E-Mail");
+            }
+
             $password = $_POST['password'];
+            if (!preg_match($passwordregex, $password)) {
+                Error::add("user_create_password", "<h4>Password must contain:</h4><br> atleast 8 characters <br> one uppercase letter <br> one lowercase letter <br> one Number <br>");
+                $error = true;
+            }
 
-            $userRepository = new UserRepository();
-            $userRepository->create($firstName, $lastName, $email, $password);
+
+            if (!$error) {
+                $firstName = htmlspecialchars($_POST['firstName']);
+                $lastName = htmlspecialchars($_POST['lastName']);
+                $userRepository = new UserRepository();
+                $userRepository->create($firstName, $lastName, $email, $password);
+                //header('Location: /user');
+            }
         }
-
-        // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
     }
 
     public function index()
@@ -42,6 +59,7 @@ class UserController
 
     public function doLogin()
     {
+
         if ($_POST['login']) {
             $username = $_POST['username'];
             $password = $_POST['password'];

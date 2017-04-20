@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="/user/doCreate" method="post">
+<form class="form-horizontal" action="/user/create" method="post">
 	<div class="component" data-html="true">
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="firstName">First Name</label>
@@ -15,13 +15,15 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="email">E-Mail*</label>
 		  <div class="col-md-4">
-		  	<input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
+		  	<input id="email" name="email" type="text" placeholder="E-Mail" required class="form-control input-md">
+              <?= Error::get('user_create_email') ?>
 		  </div>
 		</div>
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="password">Password*</label>
 		  <div class="col-md-4">
-		  	<input id="password" name="password" type="password" placeholder="Password" class="form-control input-md">
+		  	<input id="password" name="password" type="password" placeholder="Password" required class="form-control input-md">
+              <?= Error::get('user_create_password') ?>
 		  </div>
 		</div>
 		<div class="form-group">
