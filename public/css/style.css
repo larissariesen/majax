@@ -6,8 +6,8 @@ body {
 .navbar {
     background-color: #101001;
     padding: 0;
-    margin: 0;
-    border-radius: 5px;
+    margi: 0;
+    border-radius-bottomleft: 5px;
 }
 
 a.navbar-brand{
@@ -38,4 +38,28 @@ a.navbar-brand{
 
 #footer {
     position: center;
+}
+
+#profile{
+    height: 500px;
+    width: 500px;
+    background-color: black;
+    margin-bottom: 20px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+#style{
+    height: 20px;
+    width: 100%;
+    background-color: red;
+    border-top-left-radius: 25px;
+    padding-top: 5px;
+}
+
+#pandapanda{
+    margin-top: 35px;
+    margin-left: 30px;
+    height: 200px;
+    width: 200px;
 }
