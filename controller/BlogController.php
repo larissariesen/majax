@@ -48,9 +48,9 @@ class BlogController
             
 
             if ($_POST['send']) {
-                $title = $_POST['title'];
+                $title = htmlspecialchars($_POST['title']);
                 // $user_id = $_POST['user_id'];
-                $content = $_POST['content'];
+                $content = htmlspecialchars($_POST['content']);
                 $image_path = $_POST['image_path'];
 
                 $blogRepository = new BlogRepository();
