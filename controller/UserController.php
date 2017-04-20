@@ -8,6 +8,14 @@ require_once '../repository/UserRepository.php';
  */
 class UserController
 {
+    public function index()
+    {
+        $view = new View('user_index');
+        $view->title = 'Login';
+        $view->heading = 'Login';
+        $view->display();
+    }
+
     public function create()
     {
         $this->doCreate();
@@ -47,14 +55,6 @@ class UserController
                 header('Location: /user');
             }
         }
-    }
-
-    public function index()
-    {
-        $view = new View('user_index');
-        $view->title = 'Login';
-        $view->heading = 'Login';
-        $view->display();
     }
 
     public function doLogin()
