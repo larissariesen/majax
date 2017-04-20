@@ -36,14 +36,12 @@
             <ul class="nav navbar-nav">
 
                 <?php if (Security::isAuthenticated()): ?>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">All Blogs</a></li>
                     <li><a href="/blog/create">Create Blog</a></li>
-                    <li><a href="/blog">All Blogs</a></li>
-                    <li><a href="/blog/own">My Blogs</a></li>
+                    <li><a href="/blog">My Blogs</a></li>
                     <li><a href="/user/logout">Logout</a></li>
                 <?php else: ?>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/blog">All Blogs</a></li>
+                    <li><a href="/">All Blogs</a></li>
                     <li><a href="/user/create">Register</a></li>
                     <li><a href="/user">Login</a></li>
                 <?php endif; ?>

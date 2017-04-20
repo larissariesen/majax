@@ -60,7 +60,7 @@ class UserController
                     $_SESSION[Security::SESSION_USER] = $user;
 
                     // LOGIN OK
-                    header("Location: /");
+                    header("Location: /blog");
 
                 } else {
                     // LOGIN NOT OK
@@ -87,6 +87,6 @@ class UserController
 
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
+        header('Location: /');
     }
 }
