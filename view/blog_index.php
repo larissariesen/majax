@@ -8,9 +8,9 @@
         <div id="profile">
             <div id="style">
             <div>
-               <img id="pandapanda" src="../images/logo.png">
+               <img id="pandapanda" src="../images/panda.png">
             </div>
-                <!--<h2>Name: <?= //UserController:: ?></h2>-->
+                <h2 id="textProfile">Name: <?= $_SESSION[Security::SESSION_USER]->firstName, " ", $_SESSION[Security::SESSION_USER]->lastName ?></h2>
             </div>
         </div>
 

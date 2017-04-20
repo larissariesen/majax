@@ -63,3 +63,8 @@ a.navbar-brand{
     height: 200px;
     width: 200px;
 }
+
+#textProfile{
+    color: white;
+    padding-left: 10px;
+}
