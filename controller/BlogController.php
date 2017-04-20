@@ -31,11 +31,12 @@ class BlogController
     public function doCreate()
     {
         //Upload Image
-        $target_dir = "uploads/";
-        $target_file = $target_dir.basename($_FILES['image_path']['tmp_name']);
-        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
         //check if file is an actual image
-        if (isset($_POST["submit"])) {
+        if (isset($_POST["send"])) {
+            $target_dir = "uploads/";
+            $target_file = $target_dir.basename($_FILES['image_path']['tmp_name']);
+            $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
             $check = getimagesize($_FILES["image_path"]);
             if ($check !== false) {
                 echo "File is an image - " . $check["mime"] . ".";
@@ -48,9 +49,9 @@ class BlogController
             
 
             if ($_POST['send']) {
-                $title = $_POST['title'];
+                $title = htmlspecialchars($_POST['title']);
                 // $user_id = $_POST['user_id'];
-                $content = $_POST['content'];
+                $content = htmlspecialchars($_POST['content']);
                 $image_path = $_POST['image_path'];
 
                 $blogRepository = new BlogRepository();

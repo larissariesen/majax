@@ -41,7 +41,7 @@
                     <li><a href="/blog">My Blogs</a></li>
                     <li><a href="/user/logout">Logout</a></li>
                 <?php else: ?>
-                    <li><a href="/">All Blogs</a></li>
+                    <li><a href="/blog">All Blogs</a></li>
                     <li><a href="/user/create">Register</a></li>
                     <li><a href="/user">Login</a></li>
                 <?php endif; ?>
