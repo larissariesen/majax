@@ -79,9 +79,7 @@ class BlogController
             } else {
                 header("Location: /blog");
             }
-        }
-        else
-        {
+        } else {
             header("Location: /blog");
         }
     }
@@ -98,26 +96,30 @@ class BlogController
             $blogRepository = new BlogRepository();
             $insert_id = $blogRepository->update($blog_id, $title, $content);
         }
-            // Anfrage an die URI /user weiterleiten (HTTP 302)
+        // Anfrage an die URI /user weiterleiten (HTTP 302)
         header('Location: /blog');
     }
 
     public function delete()
     {
-        $blog_id = $_POST['id'];
-        $blogRepository = new BlogRepository();
-        $blog = $blogRepository->readById($blog_id);
+        if (isset($_GET['id']) && Security::isAuthenticated()) {
+            $blog_id = $_GET['id'];
+            $blogRepository = new BlogRepository();
+            $blog = $blogRepository->readById($blog_id);
 
+            if (!empty($blog) && $blog->user_id == Security::getUser()->id) {
 
-        if (isset($_POST['id'])) {
-            if (($blog->user_id == Security::getUser()->email)) {
-                $path = $_FILES['image_path']["name"];
-            }
-            if ($blogRepository->deleteById($blog_id)) {
-                unlink($path);
+                if (isset($_GET['id'])) {
+                    if (($blog->user_id == Security::getUser()->email)) {
+                        $path = $_FILES['image_path']["name"];
+                    }
+                    if ($blogRepository->deleteById($blog_id)) {
+                        unlink($path);
+                    }
+                }
             }
         }
         // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /blog');
+        header('Location: /');
     }
 }

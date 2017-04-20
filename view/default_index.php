@@ -15,7 +15,7 @@
         <?php foreach ($blogs as $blog): ?>
             <div class="panel panel-default">
                 <div class="panel-heading" name="title"><?= $blog->title; ?> - <?= $blog->user->email; ?>
-                    <img src="images/logo.png" style="float: right; height: 22px">
+                    <img src="images/panda.png" style="float: right; height: 22px">
                 </div>
                 <div class="panel-body">
                     <?php if ($blog->image_path == NULL): ?>
