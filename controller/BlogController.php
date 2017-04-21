@@ -10,6 +10,9 @@ require_once '../repository/BlogRepository.php';
  */
 class BlogController
 {
+    /**
+     * Makes View for Blog_index
+     */
     public function index()
     {
         $blogRepository = new BlogRepository();
@@ -21,6 +24,9 @@ class BlogController
         $view->display();
     }
 
+    /**
+     * view of creating a blog
+     */
     public function create()
     {
         $view = new View('blog_create');
@@ -29,6 +35,9 @@ class BlogController
         $view->display();
     }
 
+    /**
+     * Creates Blog
+     */
     public function doCreate()
     {
         //Upload Image
@@ -61,6 +70,9 @@ class BlogController
         }
     }
 
+    /**
+     * Makes it possible to edit your Blogs. You can Edit everything but the picture.
+     */
     public function edit()
     {
         if (isset($_GET['id']) && Security::isAuthenticated()) {
@@ -84,6 +96,9 @@ class BlogController
         }
     }
 
+    /**
+     * saves new Values into Blog
+     */
     public function doEdit()
     {
         if (isset($_POST["edit"])) {
@@ -100,6 +115,9 @@ class BlogController
         header('Location: /blog');
     }
 
+    /**
+     * Makes it possible to delete only your own blogs.
+     */
     public function delete()
     {
         if (isset($_GET['id']) && Security::isAuthenticated()) {

@@ -1,11 +1,9 @@
 <?php
-
-
+/**
+ * @author briesl,bpellm
+ */
 require_once '../repository/UserRepository.php';
 
-/**
- * Siehe Dokumentation im DefaultController.
- */
 class UserController
 {
     public function index()
@@ -28,6 +26,9 @@ class UserController
         $view->display();
     }
 
+    /**
+     * Creates user and validates inputs from User. XXS prevention through escaping special characters.
+     */
     public function doCreate()
     {
         if (isset($_POST['send'])) {
@@ -59,6 +60,9 @@ class UserController
         }
     }
 
+    /**
+     * Logs in the user and hashes the password.
+     */
     public function doLogin()
     {
 
@@ -79,7 +83,9 @@ class UserController
         }
     }
 
-
+    /**
+     * destroys session and logs out user
+     */
     public function logout()
     {
         Session_destroy();
