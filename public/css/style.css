@@ -44,6 +44,7 @@ a.navbar-brand {
     margin: 0 0 15px 0;
     border-bottom-right-radius: 25px;
     border-top-left-radius: 25px;
+    clear: both;
 }
 
 #style {
@@ -64,6 +65,7 @@ My Profile
     margin-bottom: 20px;
     border-bottom-right-radius: 25px;
     border-top-left-radius: 25px;
+    float: left;
 }
 
 #pandapanda {
@@ -80,4 +82,21 @@ My Profile
 #textProfile {
     color: white;
     padding-left: 10px;
+}
+
+/*#messages{
+    float: left;
+    border: 2px solid transparent;
+    border-color: #696969;
+    margin-left: 100px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    background-color: lightgreen;
+    height: 40px;
+    width: 500px;
+    text-align: center;
+    font-size: 18pt;
+}*/
+.item.title{
+    clear: both;
 }

@@ -1,10 +1,11 @@
-<form class="form-horizontal" action="/blog/doCreate" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" action="/blog/create" method="post" enctype="multipart/form-data">
     <div class="component" data-html="true">
         <!-- Title -->
         <div class="form-group">
             <label class="col-md-2 control-label" for="title">Blog Title</label>
             <div class="col-md-4">
                 <input id="title" name="title" type="text" placeholder="Title" class="form-control input-md" required>
+                <?= Error::get("title_empty") ?>
             </div>
         </div>
         <!-- Content -->
@@ -19,6 +20,7 @@
             <label class="col-md-2 control-label" for="image_path">Image</label>
             <div class="col-md-4">
                 <input id="image_path" name="image_path" type="file" class="form-control input-md">
+                <?= Error::get("not_image") ?>
             </div>
         </div>
         <!-- SubmitButton-->

@@ -10,8 +10,10 @@
             <h4 id="textProfile">Name: <pre style="margin-right: 10px;"> <?= $_SESSION[Security::SESSION_USER]->firstName, " ", $_SESSION[Security::SESSION_USER]->lastName ?></pre></h4>
             <h4 id="textProfile">Username: <pre style="margin-right: 10px;"><?= $_SESSION[Security::SESSION_USER]->email?></pre></h4>
             <h5 id="textProfile">Number of your Blogs: <pre style="margin-right: 425px;"><?= count($blogs) ?></pre></h5>
-
         </div>
+    </div>
+    <div id="messages">
+        <?=/*Success::get("blog_created")*/ "" ?>
     </div>
     <!-- If there are no blogs-->
     <?php if (empty($blogs)): ?>
@@ -24,7 +26,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading" name="title"><?= $blog->title; ?>
                     - <?= (isset($blog->user)) ? $blog->user->email : ""; ?>
-                    <a id="del" href="/blog/delete?id=<?= $blog->id ?>">
+                    <a onclick="alert('Are you sure about that?')" id="del" href="/blog/delete?id=<?= $blog->id ?>">
                         <img border="0" alt="delete" src="/images/del.png" width="20" height="20"
                              style="float: right; margin-left: 20px;">
                     </a>

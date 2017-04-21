@@ -15,6 +15,7 @@ require_once '../lib/Dispatcher.php';
 require_once '../lib/View.php';
 require_once '../lib/Security.php';
 require_once '../lib/Error.php';
+require_once '../lib/Success.php';
 
 $dispatcher = new Dispatcher();
 $dispatcher->dispatch();

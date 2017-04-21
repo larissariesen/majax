@@ -35,6 +35,8 @@ class BlogController
      */
     public function create()
     {
+        $this->doCreate();
+
         $view = new View('blog_create');
         $view->title = 'Create Blog';
         $view->heading = 'Create Blog';
@@ -50,29 +52,39 @@ class BlogController
 
         //check if file is an actual image
         if (isset($_POST["send"])) {
-            $target_dir = "uploads/";
-            $target_file = $target_dir . basename($_FILES['image_path']['tmp_name']);
-            $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-
-
-            $imageinfo = getimagesize($_FILES["image_path"]["tmp_name"]);
-            $image_type = $imageinfo[2];
-            $fileName = $_FILES['image_path']["name"];
-
-            if (in_array($image_type, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP))) {
-                $title = htmlspecialchars($_POST['title']);
-                // $user_id = $_POST['user_id'];
-                $content = htmlspecialchars($_POST['content']);
-                $image_path = $_FILES['image_path']["tmp_name"];
-
-                $blogRepository = new BlogRepository();
-                $insert_id = $blogRepository->create($title, Security::getUser()->id, $content, $fileName);
+            if (empty($_POST['title'])) {
+                Error::add("title_empty", "Please enter a title");
+                return;
             }
-            //TODO: move
-            move_uploaded_file($image_path, $target_dir . $insert_id . $fileName);
+            $title = htmlspecialchars($_POST['title']);
+            $content = htmlspecialchars($_POST['content']);
+            $image_path = null;
 
+            if (!empty($_FILES["image_path"]['tmp_name'])) {
+                $target_dir = "uploads/";
+                $target_file = $target_dir . basename($_FILES['image_path']['tmp_name']);
+                $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+                $imageinfo = getimagesize($_FILES["image_path"]["tmp_name"]);
+                $image_type = $imageinfo[2];
+                $fileName = $_FILES['image_path']["name"];
+                if (!in_array($image_type, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP))) {
+                    Error::add("not_image", "please upload image file.");
+                    return;
+                }
+                else {
+                    $image_path = $_FILES['image_path']["tmp_name"];
+                }
+            }
+            $blogRepository = new BlogRepository();
+            $insert_id = $blogRepository->create($title, Security::getUser()->id, $content, $fileName);
+            if ($image_path != NULL) {
+                move_uploaded_file($image_path, $target_dir . $insert_id . $fileName);
+            }
             // Anfrage an die URI /user weiterleiten (HTTP 302)
+            //Success::add("blog_created", "Successfully created blog");
             header('Location: /blog');
+
         }
     }
 
