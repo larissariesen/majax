@@ -29,7 +29,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/" > <img src="/images/logo.png" style="height: 30px; float: left; margin-right: 10px; "> MAJAX</a>
+            <a class="navbar-brand" href="/" > <img id='pandanavbar' src="/images/panda.png" style="height: 30px; float: left; margin-right: 10px; "> MAJAX</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">

@@ -6,6 +6,16 @@ body {
 #footer {
     position: center;
 }
+#pandanavbar{
+    margin-right: 20px;
+    height: 100px;
+    border: 1px solid transparent;
+    border-color: red;
+    background-color: red;
+    padding: 2px;
+    border-radius: 8px;
+    margin-top: -5px;
+}
 
 /**
 Navbar
@@ -54,6 +64,9 @@ a.navbar-brand {
     border-top-left-radius: 25px;
     padding-top: 5px;
 }
+.item.title{
+    clear: both;
+}
 
 /**
 My Profile
@@ -86,6 +99,9 @@ My Profile
     padding-left: 10px;
 }
 
+/**
+Messages
+ */
 #messages{
     float: left;
     border: 2px solid transparent;
@@ -98,7 +114,4 @@ My Profile
     width: 500px;
     text-align: center;
     font-size: 18pt;
-}
-.item.title{
-    clear: both;
 }
