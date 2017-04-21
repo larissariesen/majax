@@ -12,7 +12,7 @@ class UserRepository extends Repository
     protected $tableName = 'user';
 
     /**
-     * Get user by Email 
+     * Get user by Email
      *
      * @param $email
      * @return mixed
@@ -42,10 +42,14 @@ class UserRepository extends Repository
     }
 
     /**
-     *Creatw new User with entered values
-     * password is hashed
+     * creates user with inputs from user
      *
-     * @throws Exception if $statment throws back error
+     * @param $firstName
+     * @param $lastName
+     * @param $email
+     * @param $password
+     * @return mixed
+     * @throws Exception
      */
     public function create($firstName, $lastName, $email, $password)
     {
