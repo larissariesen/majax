@@ -1,6 +1,8 @@
 <!-- Form for Login -->
     <form class="form-horizontal" action="/user" method="post">
+
         <div class="component" data-html="true">
+
 
             <!-- Usernameinpur -->
             <div class="form-group">
@@ -20,13 +22,17 @@
                     <?= Error::get('user_login');  ?>
                 </div>
             </div>
-
             <!-- Submitbutton-->
             <div class="form-group">
                 <label class="col-md-2 control-label" for="login">&nbsp;</label>
                 <div class="col-md-4">
                     <input id="login" name="login" type="submit" value="Submit" class="btn btn-primary">
+                    <?php if(Success::hasSuccess()) : ?>
+                        <div id="messages">
+                            <?= Success::get("create_success") ?>
+                        </div>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
-    </form>
+    </form><p></p>
