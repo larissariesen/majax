@@ -13,7 +13,7 @@
         <!-- show all blogs-->
         <?php foreach ($blogs as $blog): ?>
             <div class="panel panel-default">
-                <div class="panel-heading" name="title"><?= $blog->title; ?> - <?= $blog->user->email; ?>
+                <div class="panel-heading" name="title"><?= $blog->title; ?> - <?= (!empty($blog->user)) ? $blog->user->email : "USER DELETED"; ?>
                     <img src="images/panda.png" style="float: right; height: 22px">
                 </div>
                 <div class="panel-body">

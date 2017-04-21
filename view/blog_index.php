@@ -1,6 +1,6 @@
 <article class="hreview open special">
 
-    <!-- Profile with name & email & (count own blogs)-->
+    <!-- Profile with name & email & count own blogs-->
     <div id="profile">
         <div id="style">
             <div>
@@ -19,7 +19,6 @@
             <h2 class="item title">Oops! No Blogs were found.</h2>
         </div>
     <?php else: ?>
-
         <!-- shows own blogs with option to delete or edit -->
         <?php foreach ($blogs as $blog): ?>
             <div class="panel panel-default">
@@ -33,7 +32,6 @@
                         <img border="0" alt="edit" src="/images/edit.png" width="20" height="20" style="float: right">
                     </a>
                 </div>
-
                 <!-- Handling show Image (not editable) -->
                 <div class="panel-body">
                     <?php if ($blog->image_path == NULL): ?>
@@ -43,7 +41,6 @@
                     <?php endif ?>
                     </br></br>
                     <?= $blog->content; ?>
-
                 </div>
             </div>
         <?php endforeach; ?>

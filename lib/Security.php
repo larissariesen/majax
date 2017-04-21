@@ -26,7 +26,7 @@ class Security
      * @return mixed
      */
     public static function getUser() {
-        return $_SESSION[Security::SESSION_USER];
+        return isset($_SESSION[Security::SESSION_USER]) ? $_SESSION[Security::SESSION_USER] : NULL;
     }
 
 

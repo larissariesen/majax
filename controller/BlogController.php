@@ -15,13 +15,19 @@ class BlogController
      */
     public function index()
     {
-        $blogRepository = new BlogRepository();
+        if (Security::isAuthenticated()){
+            $blogRepository = new BlogRepository();
 
-        $view = new View('blog_index');
-        $view->title = 'My Profile';
-        $view->heading = 'My Profile';
-        $view->blogs = $blogRepository->readAllCompleteByUserID(Security::getUser()->id);
-        $view->display();
+            $view = new View('blog_index');
+            $view->title = 'My Profile';
+            $view->heading = 'My Profile';
+            $view->blogs = $blogRepository->readAllCompleteByUserID(Security::getUser()->id);
+            $view->display();
+        }
+        else{
+            header("Location: /");
+        }
+
     }
 
     /**
