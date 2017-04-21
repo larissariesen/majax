@@ -1,6 +1,9 @@
 <?php
-
+/**
+ * This file was given so the comments aren't from us
+ */
 require_once 'ConnectionHandler.php';
+
 
 /**
  * Das Model ist das M in MVC. Es ist zustängig für alles, was mit der Datenbank

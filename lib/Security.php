@@ -11,12 +11,20 @@ class Security
     const SESSION_USER = "USER";
 
 
+    /**
+     * check if user is logged in
+     * @return bool
+     */
     public static function isAuthenticated() {
 
         return isset($_SESSION[Security::SESSION_USER]) && $_SESSION[Security::SESSION_USER]->id > 0;
 
     }
 
+    /**
+     * return the current logged in user
+     * @return mixed
+     */
     public static function getUser() {
         return $_SESSION[Security::SESSION_USER];
     }

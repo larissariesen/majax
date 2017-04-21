@@ -34,10 +34,12 @@ class UserController
         if (isset($_POST['send'])) {
             $emailregex = '/^[\w\d-._]{1,100}@[\w\d]{1,50}\.[a-z]{1,10}$/';
             $passwordregex = '/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/';
-
+            $query = "SELECT email from USER";
             $error = false;
-
             $email = htmlspecialchars($_POST['email']);
+
+            $userRepository = new UserRepository();
+
             if (!preg_match($emailregex, $email)) {
                 $error = true;
                 Error::add("user_create_email", "Please enter a valid E-Mail");
@@ -49,11 +51,15 @@ class UserController
                 $error = true;
             }
 
+            if (!empty($userRepository->readByEmail($email))){
+                Error::add("user_exists","Email is already taken, please try again.");
+                $error = true;
+            }
 
             if (!$error) {
                 $firstName = htmlspecialchars($_POST['firstName']);
                 $lastName = htmlspecialchars($_POST['lastName']);
-                $userRepository = new UserRepository();
+
                 $userRepository->create($firstName, $lastName, $email, $password);
                 header('Location: /user');
             }

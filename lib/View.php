@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file was given so the comments aren't from us
+ */
 
 /**
  * Die View is das V aus MVC. Dabei geht es um alles, was dem Client (Browser)

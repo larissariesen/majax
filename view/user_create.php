@@ -24,6 +24,7 @@
 		  <div class="col-md-4">
 		  	<input id="email" name="email" type="text" placeholder="E-Mail" required class="form-control input-md" value="<?= (!empty($_POST['email'])) ? $_POST['email'] : "" ?>"> <!-- to keep email/username if there's an error -->
               <?= Error::get('user_create_email') ?>
+              <?= Error::get('user_exists') ?>
 		  </div>
 		</div>
 

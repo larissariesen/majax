@@ -12,11 +12,11 @@ class UserRepository extends Repository
     protected $tableName = 'user';
 
     /**
-     * Get user by Email
+     * Gets user by Email
      *
      * @param $email
      * @return mixed
-     * @throws Exception
+     * @throws Exception when
      */
     public function readByEmail($email)
     {
@@ -49,7 +49,7 @@ class UserRepository extends Repository
      * @param $email
      * @param $password
      * @return mixed
-     * @throws Exception
+     * @throws Exception when statement does not execute
      */
     public function create($firstName, $lastName, $email, $password)
     {

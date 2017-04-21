@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * This file was given so the comments aren't from us
+ */
+/**
  * Der Dispatcher ist dafür zuständig, alle Requests an den entsprechenden
  * Controller weiterzuleiten.
  *
