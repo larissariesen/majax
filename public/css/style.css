@@ -59,9 +59,13 @@ a.navbar-brand{
 
 #pandapanda{
     margin-top: 35px;
-    margin-left: 30px;
+    margin-left: 130px;
     height: 200px;
     width: 200px;
+    border: 2px solid transparent;
+    border-color: red;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
 }
 
 #textProfile{

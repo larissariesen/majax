@@ -1,4 +1,4 @@
-<!-- get blog_id for edit the right blog -->
+<!-- get blog_id/title/content to edit the right blog -->
 <form class="form-horizontal" action="/blog/doEdit?id=<?= $blog->id ?>" method="post" enctype="multipart/form-data">
     <div class="component" data-html="true">
         <!-- Title -->

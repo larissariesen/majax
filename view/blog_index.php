@@ -6,9 +6,10 @@
             <div>
                 <img id="pandapanda" src="../images/panda.png">
             </div>
-            <h2 id="textProfile">Name: <?= $_SESSION[Security::SESSION_USER]->firstName, " ", $_SESSION[Security::SESSION_USER]->lastName ?></h2>
-            <h2 id="textProfile">Username: <?= $_SESSION[Security::SESSION_USER]->email?></h2>
-            <h2 id="textProfile">Number of your Blogs: <?= count($blogs) ?></h2>
+            </br></br>
+            <h4 id="textProfile">Name: <pre style="margin-right: 10px;"> <?= $_SESSION[Security::SESSION_USER]->firstName, " ", $_SESSION[Security::SESSION_USER]->lastName ?></pre></h4>
+            <h4 id="textProfile">Username: <pre style="margin-right: 10px;"><?= $_SESSION[Security::SESSION_USER]->email?></pre></h4>
+            <h5 id="textProfile">Number of your Blogs: <pre style="margin-right: 425px;"><?= count($blogs) ?></pre></h5>
 
         </div>
     </div>
@@ -40,6 +41,7 @@
                     <?php else: ?>
                         <img src="/uploads/<?= $blog->id . $blog->image_path ?>" alt="image"/>
                     <?php endif ?>
+                    </br></br>
                     <?= $blog->content; ?>
 
                 </div>

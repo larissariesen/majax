@@ -1,6 +1,6 @@
 <!-- First- & Lastname current user-->
 <?php if (Security::isAuthenticated()) : ?>
-    Hello <?= $_SESSION[Security::SESSION_USER]->firstName, " ", $_SESSION[Security::SESSION_USER]->lastName; ?><br><br>
+    <h3>Hello <?= $_SESSION[Security::SESSION_USER]->firstName, " ", $_SESSION[Security::SESSION_USER]->lastName; ?></h3>
 <?php endif; ?>
 
 <article class="hreview open special">
@@ -17,13 +17,14 @@
                     <img src="images/panda.png" style="float: right; height: 22px">
                 </div>
                 <div class="panel-body">
-                    <!-- Handling Handling Image -->
+                    <!-- Handling Image -->
                     <?php if ($blog->image_path == NULL): ?>
                         <p></p>
                     <?php else: ?>
                         <img src="/uploads/<?php echo $blog->id;
                         echo $blog->image_path ?>" alt="image"/>
                     <?php endif ?>
+                </br></br>
                     <?= $blog->content; ?>
 
                 </div>
