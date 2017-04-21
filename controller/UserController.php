@@ -61,6 +61,7 @@ class UserController
                 $lastName = htmlspecialchars($_POST['lastName']);
 
                 $userRepository->create($firstName, $lastName, $email, $password);
+                Success::add("create_success", "Registration Successful!");
                 header('Location: /user');
             }
         }

@@ -2,7 +2,7 @@
     <div class="component" data-html="true">
         <!-- Title -->
         <div class="form-group">
-            <label class="col-md-2 control-label" for="title">Blog Title</label>
+            <label class="col-md-2 control-label" for="title">Title</label>
             <div class="col-md-4">
                 <input id="title" name="title" type="text" placeholder="Title" class="form-control input-md" required>
                 <?= Error::get("title_empty") ?>

@@ -3,10 +3,6 @@ body {
     background-color: lightgrey;
 }
 
-#footer {
-    position: center;
-}
-
 /**
 Navbar
  */
@@ -98,6 +94,7 @@ My Profile
     width: 500px;
     text-align: center;
     font-size: 18pt;
+    margin: 50px;
 }
 .item.title{
     clear: both;
