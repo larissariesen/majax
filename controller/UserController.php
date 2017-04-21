@@ -18,6 +18,11 @@ class UserController
 
     public function create()
     {
+        if(Security::isAuthenticated())
+        {
+          header("Location: /blog");
+          exit();
+        }
         $this->doCreate();
 
         $view = new View('user_create');

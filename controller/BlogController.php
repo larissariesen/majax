@@ -35,6 +35,11 @@ class BlogController
      */
     public function create()
     {
+        if(!Security::isAuthenticated())
+        {
+            header("Location: /");
+            exit();
+        }
         $this->doCreate();
 
         $view = new View('blog_create');
