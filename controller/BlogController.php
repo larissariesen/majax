@@ -82,7 +82,7 @@ class BlogController
                 move_uploaded_file($image_path, $target_dir . $insert_id . $fileName);
             }
             // Anfrage an die URI /user weiterleiten (HTTP 302)
-            //Success::add("blog_created", "Successfully created blog");
+            Success::add("blog_created", "Successfully created blog");
             header('Location: /blog');
 
         }

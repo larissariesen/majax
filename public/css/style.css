@@ -77,6 +77,8 @@ My Profile
     border-color: red;
     border-bottom-right-radius: 25px;
     border-top-left-radius: 25px;
+    background-color: red;
+    padding: 2px;
 }
 
 #textProfile {
@@ -84,7 +86,7 @@ My Profile
     padding-left: 10px;
 }
 
-/*#messages{
+#messages{
     float: left;
     border: 2px solid transparent;
     border-color: #696969;
@@ -96,7 +98,7 @@ My Profile
     width: 500px;
     text-align: center;
     font-size: 18pt;
-}*/
+}
 .item.title{
     clear: both;
 }

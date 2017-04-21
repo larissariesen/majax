@@ -12,9 +12,11 @@
             <h5 id="textProfile">Number of your Blogs: <pre style="margin-right: 425px;"><?= count($blogs) ?></pre></h5>
         </div>
     </div>
+    <?php if(Success::hasSuccess()) : ?>
     <div id="messages">
-        <?=/*Success::get("blog_created")*/ "" ?>
+        <?= Success::get("blog_created") ?>
     </div>
+    <?php endif ?>
     <!-- If there are no blogs-->
     <?php if (empty($blogs)): ?>
         <div class="dhd">
