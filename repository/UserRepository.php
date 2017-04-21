@@ -12,27 +12,12 @@ class UserRepository extends Repository
     protected $tableName = 'user';
 
     /**
-     *Creat new User with entered values
-     *password is hashed
+     * Get user by Email 
      *
-     * @throws Exception if $statment throws back error
+     * @param $email
+     * @return mixed
+     * @throws Exception
      */
-    public function create($firstName, $lastName, $email, $password)
-    {
-        $password = hash('sha256', $password);
-
-        $query = "INSERT INTO $this->tableName (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
-
-        $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssss', $firstName, $lastName, $email, $password);
-
-        if (!$statement->execute()) {
-            throw new Exception($statement->error);
-        }
-
-        return $statement->insert_id;
-    }
-
     public function readByEmail($email)
     {
         // create Query
@@ -54,5 +39,27 @@ class UserRepository extends Repository
         $result->close();
         // give back found record
         return $row;
+    }
+
+    /**
+     *Creatw new User with entered values
+     * password is hashed
+     *
+     * @throws Exception if $statment throws back error
+     */
+    public function create($firstName, $lastName, $email, $password)
+    {
+        $password = hash('sha256', $password);
+
+        $query = "INSERT INTO $this->tableName (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('ssss', $firstName, $lastName, $email, $password);
+
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        }
+
+        return $statement->insert_id;
     }
 }

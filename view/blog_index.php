@@ -7,6 +7,9 @@
                 <img id="pandapanda" src="../images/panda.png">
             </div>
             <h2 id="textProfile">Name: <?= $_SESSION[Security::SESSION_USER]->firstName, " ", $_SESSION[Security::SESSION_USER]->lastName ?></h2>
+            <h2 id="textProfile">Username: <?= $_SESSION[Security::SESSION_USER]->email?></h2>
+            <h2 id="textProfile">Number of your Blogs: <?= count($blogs) ?></h2>
+
         </div>
     </div>
     <!-- If there are no blogs-->
